@@ -1,4 +1,4 @@
-import { randomNumber as randomIntFromRange, mouseCollision } from "./helper.js";
+import * as Helper from "./helper.js";
 const canvas = document.querySelector("canvas");
 canvas.width = innerWidth;
 canvas.height = innerHeight;
@@ -29,14 +29,14 @@ class Rect {
   constructor(x, y, color) {
     this.x = x;
     this.y = y;
-    this.width = randomIntFromRange(80, 150);
+    this.width = Helper.randomIntFromRange(80, 150);
     this.height = this.width;
     this.color = color;
-    this.originalColor = `hsl(${Math.random() * 360}, 40%, 50%)`;
-    this.mouseColor = `hsl(${Math.random() * 360}, 40%, 50%)`;
+    this.originalColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+    this.mouseColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
     this.velocity = {
-      x: randomIntFromRange(-2, 2),
-      y: randomIntFromRange(-2, 2),
+      x: Helper.randomIntFromRange(-2, 2),
+      y: Helper.randomIntFromRange(-2, 2),
     };
   }
 
@@ -69,13 +69,13 @@ function init() {
   mouseRect = new Rect(
     mouse.x,
     mouse.y,
-    `hsl(${Math.random() * 360}, 100%, 50%)`
+    `hsl(${Math.random() * 360}, 30%, 50%)`
   );
   for (let i = 0; i < numberOfRects; i++) {
     rectArray.push(
       new Rect(
-        randomIntFromRange(0, innerWidth - 150),
-        randomIntFromRange(0, innerHeight - 150),
+        Helper.randomIntFromRange(0, innerWidth - 150),
+        Helper.randomIntFromRange(0, innerHeight - 150),
       )
     );
   }
@@ -92,7 +92,7 @@ function animate() {
 
   for (let i = 0; i < rectArray.length; i++) {
     rectArray[i].update();
-    mouseCollision(mouseRect, rectArray[i]);
+    Helper.mouseCollision(mouseRect, rectArray[i]);
   }
 }
 animate();
