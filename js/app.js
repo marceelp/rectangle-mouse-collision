@@ -69,7 +69,7 @@ function init() {
   mouseRect = new Rect(
     mouse.x,
     mouse.y,
-    `hsl(${Math.random() * 360}, 30%, 50%)`
+    `hsl(${Math.random() * 360}, 50%, 50%)`
   );
   for (let i = 0; i < numberOfRects; i++) {
     rectArray.push(
@@ -96,5 +96,3 @@ function animate() {
   }
 }
 animate();
-
-console.log(mouseCollision(mouseRect, rectArray[i]));
