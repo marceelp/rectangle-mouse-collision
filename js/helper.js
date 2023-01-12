@@ -33,7 +33,7 @@ export function mouseCollision(firstRect, secondRect, rectArray) {
 
 
 
-// function changeDirection() {
+// export function changeDirection() {
 //   if (secondRect.velocity.x > 0 && secondRect.velocity.y > 0) {
 //     secondRect.velocity.x = -secondRect.velocity.x;
 //     return;
